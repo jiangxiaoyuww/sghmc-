@@ -2,19 +2,9 @@
 sghmcmc
 ===========
 
-sghmc has sghmc, hmc, U, gradU
-
-    #!/usr/bin/env python
-
-    from sghmc import sghmc
-    from sghmc import hmc
-    from sghmc import U
-    from sghmc import gradU
-
-
-    sghmc(gradU, eta, L, alpha, x, V)
-    hmc(U, gradU, m, dt, nstep, x, MH)
-    gradU(data, minibatch, beta)
-    U(data, beta)
-	
-sss
+sghmc has hmc, sghmc_jit, naive_sghmc 
+c1 = naive_sghmc(lnp,lnp_grad,initialguess,data=None,usedata = False, M = None)
+c2 = hmc(lnp,lnp_grad,initialguess, data = None, usedata = False, M = None)
+c3 = sghmc_jit(lnp,lnp_grad,initialguess,C,data = None, usedata = False,B=None,M=None,logpri=None)
+To call sample:
+cx.sampling(iterations, epsilon, length, size)
